@@ -1,0 +1,20 @@
+.navmain{
+    width: 100%;
+    display:flex;
+    justify-content: space-around;
+    height: 80px;
+    background-color: rgb(247, 242, 242);
+    align-items: center;
+     margin-top: -80PX;
+     position: fixed;
+     
+}
+a{
+     
+    font-weight: 500;
+     font-size: large;
+    text-decoration: none;
+    word-spacing: 2px;
+    height: fit-content;
+}
+ 

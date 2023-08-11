@@ -65,9 +65,10 @@ router.get('/filter', async (req, res) => {
 // Create a new property listing
 router.post('/', authMiddleware, async (req, res) => {
   try {
-    const { title, description, location, price } = req.body;
+    const { title, image, description, location, price } = req.body;
     const property = new Property({
       title,
+      image,
       description,
       location,
       price,
