@@ -25,7 +25,7 @@ function App() {
   return (
     <BrowserRouter>
        
-         <Navbar login={login}/>
+         <Navbar login={login} handleLogin={handleLogin}/>
         <Routes>
           <Route path="/" element={<Home token={token}/>}/>
           <Route path="/login" element={<Login handleLogin={handleLogin}  />}/>
