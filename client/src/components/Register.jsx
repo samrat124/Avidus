@@ -1,10 +1,10 @@
 import React from 'react'
 import AuthForm from './AuthForm'
 
-const Register = ({handleAuth}) => {
+const Register = ({handleLogin}) => {
   return (
     <div>
-        {<AuthForm onAuth={handleAuth} log="register"/>}
+        {<AuthForm handleLogin={handleLogin} log="register"/>}
     </div>
   )
 }

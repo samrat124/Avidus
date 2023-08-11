@@ -13,19 +13,23 @@ import Register from './components/Register';
 
 function App() {
   const [token, setToken] = useState(null);
+  const [login,setLogin]=useState(false);
 
   const handleAuth = (authToken) => {
     setToken(authToken);
   };
+  const handleLogin=(ele)=>{
+    setLogin(ele);
+  }
 
   return (
     <BrowserRouter>
        
-         <Navbar/>
+         <Navbar login={login}/>
         <Routes>
           <Route path="/" element={<Home token={token}/>}/>
-          <Route path="/login" element={<Login onAuth={handleAuth}/>}/>
-          <Route path='/register' element={<Register onAuth={handleAuth}/>}/>
+          <Route path="/login" element={<Login handleLogin={handleLogin}  />}/>
+          <Route path='/register' element={<Register handleLogin={handleLogin}  />}/>
            
         </Routes>
      

@@ -15,4 +15,9 @@ input{
 
 
 @media  screen and (max-width: 600px){
+    .auth-main{
+        width: 90%;
+        margin-left: 5%;
+        height: 600px;
+    }
 }

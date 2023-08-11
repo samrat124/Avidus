@@ -1,9 +1,9 @@
 import React from 'react'
 import AuthForm from './AuthForm'
 
-const Login = ({handleAuth}) => {
+const Login = ({handleLogin}) => {
   return (
-    <div>{<AuthForm onAuth={handleAuth} log="login"/>}</div>
+    <div>{<AuthForm handleLogin={handleLogin} log="login"/>}</div>
   )
 }
 
