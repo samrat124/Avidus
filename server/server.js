@@ -12,7 +12,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect("mongodb+srv://samrat:samrat@cluster0.krhxyzl.mongodb.net/?retryWrites=true&w=majority/airbnb", {
+mongoose.connect(process.env.URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
