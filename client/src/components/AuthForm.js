@@ -16,7 +16,7 @@ const AuthForm = ({ onAuth ,log}) => {
     e.preventDefault();
     try {
       // Make API request to login or register
-      const response = await axios.post(`http://localhost:5000/api/auth/${log}`, {username,password});
+      const response = await axios.post(`https://frail-bat-attire.cyclic.app/api/auth/${log}`, {username,password});
       const token = response.data.token;
       onAuth(token); // Pass token up to parent component
       navigate('/')

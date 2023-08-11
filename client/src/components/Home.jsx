@@ -9,7 +9,7 @@ let handleClick=(ele)=>{
   alert("property booked")
 }
 useEffect(()=>{
- axios.get('http://localhost:5000/api/properties')
+ axios.get('https://frail-bat-attire.cyclic.app/api/properties')
  .then(res=>setState(res.data))
  console.log(state);
 },[])
