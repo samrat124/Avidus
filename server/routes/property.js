@@ -91,7 +91,8 @@ router.post('/:propertyId/book', authMiddleware, async (req, res) => {
       startDate,
       endDate,
     });
-    
+    console.log('Received Token:', token);
+console.log('User ID:', req.user.userId);
     await booking.save();
     res.status(201).json({ message: 'Booking successful' });
   } catch (error) {
