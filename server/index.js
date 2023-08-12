@@ -9,19 +9,16 @@ const cors = require('cors');
 
 
 const app = express();
- 
-app.use(cors());
+const corsOptions = {
+  origin: 'http://localhost:3000', // Allow requests from any origin
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+  optionsSuccessStatus: 204,
+};
+app.use(cors(corsOptions));
 app.use(bodyParser.json())
 app.use(express.json());
-app.use((req, res, next) => {
-  res.set({
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "*",
-      "Access-Control-Allow-Headers": "'Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token'",
-  });
 
-  next();
-});
 mongoose.connect(process.env.URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
