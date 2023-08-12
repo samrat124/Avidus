@@ -9,7 +9,13 @@ const cors = require('cors');
 
 
 const app = express();
-app.use(cors());
+const corsOptions = {
+  origin: '*', // Allow requests from any origin
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+  optionsSuccessStatus: 204,
+};
+app.use(cors(corsOptions));
 app.use(bodyParser.json())
 app.use(express.json());
 
