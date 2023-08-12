@@ -84,22 +84,18 @@ router.post('/:propertyId/book', authMiddleware, async (req, res) => {
       return res.status(404).json({ error: 'Property not found' });
     }
     const { startDate, endDate } = req.body;
-    
     const booking = new Booking({
       property: property._id,
-      user: req.user.userId, // Associate the booking with the logged-in user
+      user: req.user.userId, // Use the user ID from the authenticated request
       startDate,
       endDate,
     });
-    console.log('Received Token:', token);
-console.log('User ID:', req.user.userId);
     await booking.save();
     res.status(201).json({ message: 'Booking successful' });
   } catch (error) {
     res.status(500).json({ error: 'An error occurred' });
   }
 });
-
 
 // Create a new property listing
 router.post('/', authMiddleware, async (req, res) => {

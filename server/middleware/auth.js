@@ -1,3 +1,5 @@
+// authMiddleware.js
+
 const jwt = require('jsonwebtoken');
 
 const authMiddleware = (req, res, next) => {
@@ -6,7 +8,7 @@ const authMiddleware = (req, res, next) => {
     return res.status(401).json({ error: 'Access denied' });
   }
   try {
-    const verified = jwt.verify(token, 'your-secret-key');
+    const verified = jwt.verify(token, 'abcdefghij'); // Change this to your secret key
     req.user = verified;
     next();
   } catch (error) {
