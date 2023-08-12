@@ -62,6 +62,21 @@ router.get('/filter', async (req, res) => {
   }
 });
 
+router.get('/:propertyId', async (req, res) => {
+  try {
+    const propertyId = req.params.propertyId;
+    const property = await Property.findById(propertyId);
+
+    if (!property) {
+      return res.status(404).json({ error: 'Property not found' });
+    }
+
+    res.json(property);
+  } catch (error) {
+    res.status(500).json({ error: 'An error occurred' });
+  }
+});
+
 // Create a new property listing
 router.post('/', authMiddleware, async (req, res) => {
   try {
