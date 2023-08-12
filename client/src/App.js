@@ -10,6 +10,7 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Login from './components/Login';
 import Register from './components/Register';
+import PropertyDetails from './components/PropertyDetails';
 
 function App() {
   const [token, setToken] = useState(null);
@@ -28,9 +29,9 @@ function App() {
          <Navbar login={login} handleLogin={handleLogin}/>
         <Routes>
           <Route path="/" element={<Home token={token}/>}/>
-          <Route path="/login" element={<Login handleLogin={handleLogin}  />}/>
-          <Route path='/register' element={<Register handleLogin={handleLogin}  />}/>
-           
+          <Route path="/login" element={<Login handleLogin={handleLogin} handleAuth={handleAuth} />}/>
+          <Route path='/register' element={<Register handleLogin={handleLogin}  handleAuth={handleAuth}/>}/>
+           <Route path='/:_id' element={<PropertyDetails token={token} login={login}/>}/>
         </Routes>
      
     </BrowserRouter>

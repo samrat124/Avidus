@@ -5,7 +5,7 @@ import axios from 'axios';
 import './AuthForm.css'
 import { useNavigate } from 'react-router-dom';
 
-const AuthForm = ({ handleLogin ,log}) => {
+const AuthForm = ({ handleLogin ,handleAuth,log}) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -18,9 +18,17 @@ const AuthForm = ({ handleLogin ,log}) => {
       // Make API request to login or register
       const response = await axios.post(`https://frail-bat-attire.cyclic.app/api/auth/${log}`, {username,password});
       const token = response.data.token;
-       localStorage.setItem('token',token)// Pass token up to parent component
-       handleLogin(true);
+       
+       handleAuth(token)// Pass token up to parent component
+       
+       if(log=="login"){
+         handleLogin(true);
       navigate('/')
+       }
+       else{
+         handleLogin(false);
+        navigate('/login')
+       }
     
   };
 
@@ -32,7 +40,7 @@ const AuthForm = ({ handleLogin ,log}) => {
       <br/>
       <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
       <br/>
-      <button type="submit">{log}</button>
+      <button type="submit">{log.toUpperCase()}</button>
     </form>
     </div>
   );

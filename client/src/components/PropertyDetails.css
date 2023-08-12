@@ -1,0 +1,39 @@
+.detail-main{
+    display:grid;
+     
+    margin-top: 80px;
+    width: 40%;
+    margin-left: 30%;
+    height: 500px;
+     
+    margin-bottom: 100px;
+}
+.detail-main>img{
+    width: 100%;
+    margin: auto;
+    height: 300px;
+}
+.submit-btn{
+    background-color: brown;
+    color: white;
+    border: none;
+    height: 30px;
+}
+.submit-btn:hover{
+    cursor: pointer;
+}
+.detail-form{
+    display: flex;
+    gap: 20px;
+}
+@media  screen and (max-width: 600px){
+    .detail-main{
+         
+        width: 90%;
+        margin-left: 5%;
+        height: 500px;
+         
+        margin-bottom: 10px;
+    }
+
+}

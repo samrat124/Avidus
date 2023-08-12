@@ -1,17 +1,20 @@
 import React, { useEffect,useState } from 'react'
 import axios from 'axios'
 import './Home.css'
+import { useNavigate } from 'react-router-dom';
 
 const Home = ({token}) => {
 const[state,setState]=useState([]);
+const navigate=useNavigate();
 let handleClick=(ele)=>{
-  console.log(ele);
-  alert("property booked")
+   
+  navigate(`/${ele._id}`);
+  // alert("property booked")
 }
 useEffect(()=>{
  axios.get('https://frail-bat-attire.cyclic.app/api/properties')
  .then(res=>setState(res.data))
- console.log(state);
+  
 },[])
   return (
     <div>
